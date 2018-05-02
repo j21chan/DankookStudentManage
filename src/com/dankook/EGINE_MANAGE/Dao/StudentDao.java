@@ -17,7 +17,9 @@ public class StudentDao {
 	// DaataSource 가져오는 과정
 	DataSource dataSource;
 	
+	// 생성자
 	public StudentDao() {
+		// Data Source 검색
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myDB");
@@ -85,6 +87,7 @@ public class StudentDao {
 	// 학생 로그인 로직
 	// 반환: 성공값 / 매개변수: 학생 로그인 정보
 	public StudentDto loginStudent(String sID, String sPW) {
+		
 		// 쿼리문, 연결 객체
 		PreparedStatement preStatement = null;
 		Connection conn = null;
@@ -134,14 +137,12 @@ public class StudentDao {
 			// 쿼리 에러
 			e.printStackTrace();
 			System.out.println("Student Login 실패");
-			
 		} finally {
 			// 커넥션 객체 닫기
 			try {
 				if (preStatement != null) { preStatement.close(); }
 				if (conn != null) { conn.close(); }
 				if (resultSet != null) { resultSet.close(); }
-				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -231,7 +232,7 @@ public class StudentDao {
 			conn = dataSource.getConnection();
 			
 			// 쿼리문
-			query = "insert into student(id, pw, StudentID, StudentName, MajorNumber, DeptNumber, Sex, Phone, Address) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			query = "delete from student where id = ? and pw = ?";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
@@ -258,7 +259,6 @@ public class StudentDao {
 				e2.printStackTrace();
 			}
 		}
-		
 		return run;
 	}
 	
@@ -295,7 +295,7 @@ public class StudentDao {
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
-			
+
 			// 쿼리문 실행
 			resultSet = preStatement.executeQuery(query);
 			System.out.println("Student Search 성공");
