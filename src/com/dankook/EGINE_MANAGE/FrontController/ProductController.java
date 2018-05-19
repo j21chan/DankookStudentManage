@@ -20,7 +20,7 @@ import com.dankook.EGINE_MANAGE.Command.ProductCommand.ProductSearchCommand;
  * 물품관리 FrontController
  * 
  * *** 실행 순서 ***
- * => http://localhost:8080/product/[사용자 요청 로직]
+ * => http://localhost:8080/EGINE_MANAGE/product/[사용자 요청 로직]
  * => actionDo 호출
  * => 로직 수행
  * => 다음 페이지 foward
@@ -80,25 +80,25 @@ public class ProductController extends HttpServlet {
 		 * Logic Request
 		 */
 		
-		// 물건 추가 로직
+		// 물품 추가 로직
 		if(com.equals("/product/add")) {
 			command = new ProductAddCommand();
 			command.execute(request, response);
 			viewPage = "/views/PRODUCT/productAdd.jsp";
 			
-		// 물건 삭제 로직
+		// 물품 삭제 로직
 		} else if(com.equals("/product/delete")) {
 			command = new ProductDeleteCommand();
 			command.execute(request, response);
 			viewPage = "/views/PRODUCT/productDelete.jsp";
 			
-		// 물건 리스트 로직
+		// 물품 리스트 로직
 		} else if(com.equals("/product/list")) {
 			command = new ProductListCommand();
 			command.execute(request, response);
 			viewPage = "/views/PRODUCT/productList.jsp";
 			
-		// 물건 검색 로직
+		// 물품 검색 로직
 		} else if(com.equals("/product/search")) {
 			command = new ProductSearchCommand();
 			command.execute(request, response);
@@ -106,7 +106,7 @@ public class ProductController extends HttpServlet {
 		}
 		
 		
-		// 로직 수행 후 viewPage에 맞게 foward 시켜준다
+		// 로직 수행 후 viewPage에 맞게 forward 시켜준다
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}

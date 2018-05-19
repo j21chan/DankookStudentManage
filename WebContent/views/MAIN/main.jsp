@@ -48,8 +48,8 @@
 	        <li><a href="badges.html">자유게시판</a></li>
 	        <li><a href="collapsible.html">공과대학 학생회 게시판</a></li>
 	        <li><a href="badges.html">물품관리</a></li>
-	        <li><a href="/EGINE_MANAGE/student/join">대여관리</a></li>
-	        <li><a href="collapsible.html">학생관리</a></li>
+	        <li><a href="">대여관리</a></li>
+	        <li><a href="/EGINE_MANAGE/views/STUDENT/studentSearch.jsp">학생관리</a></li>
 	      </ul>	  
       </div>	
 	</nav>
@@ -63,25 +63,25 @@
         <li class="collection-item">세번째글 제목</li>
         <li class="collection-item">네번째글 제목</li>
       </ul>
+		<form action = "/EGINE_MANAGE/student/login" method = "post">
 			<div class = "row" style ="position: absolute; left:1000px; top:415px;">
 				<div class = "col12" align = "center"><span class = "flow-text"><b>로그인</b></span></div>
 				<div class = "col s4 offset-s4">
 					<b>아이디</b>
-					<input type = "text" name = "id" size = "25">
-					<!-- input말고 로그인한 아이디가 화면에 출력되도록 변경해야함 -->
+					<input type = "text" name = "id" size = "25" autofocus required>
 				</div>
 				<div class = "col s4 offset-s4">
-					<b>이름</b>
-					<input type = "password" name = "pw" size = "25">
-					<!-- input말고 로그인한 이름이 화면에 출력되도록 변경해야함 -->
+					<b>비밀번호</b>
+					<input type = "password" name = "pw" size = "25" required>
 				</div>
-				<div class = "col s5 offset-s4">
-					<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/STUDENT/studentLogout.jsp">로그아웃
-					<i class="material-icons right">highlight_off</i></a>&nbsp;&nbsp;
-			 		<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/STUDENT/studentModify.jsp">정보수정
-			 		<i class="material-icons right">settings</i></a>
+				<div class = "col s4 offset-s4" align = "center">
+					<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">로그인
+			   			<i class="material-icons right">send</i>
+			 		</button>&nbsp;&nbsp;
+			 		<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/STUDENT/studentSelect.jsp">회원가입</a>
 				</div>
 			</div>
+		</form>
 		<br>
 		<div class = "row">
 		<div class="col s4">
@@ -91,6 +91,7 @@
 			<blockquote cite="https://www.facebook.com/dkugukbap/" class="fb-xfbml-parse-ignore">
 			<a href="https://www.facebook.com/dkugukbap/">단국대학교 공과대학</a></blockquote>
 			</div>
+		</div>	
 			<div class="col s2 offset-s1" align = "center">
 				<h6><b>회원 관리</b></h6><br/>
 				<img class="responsive-img" src="/EGINE_MANAGE/images/team.png" style = "height:125px" style = "width:125px">

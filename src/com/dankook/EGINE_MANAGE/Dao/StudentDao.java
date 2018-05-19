@@ -10,8 +10,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.dankook.EGINE_MANAGE.Dto.StudentDto;
-import com.dankook.EGINE_MANAGE.Uility.Department;
-import com.dankook.EGINE_MANAGE.Uility.Major;
+import com.dankook.EGINE_MANAGE.Uility.DeptUtil;
+import com.dankook.EGINE_MANAGE.Uility.MajorUtil;
 
 public class StudentDao {
 	// DaataSource 가져오는 과정
@@ -123,14 +123,14 @@ public class StudentDao {
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				Major majorNumber = Major.majorNum(Integer.parseInt(resultSet.getString("MajorNumber")));
-				Department deptNumber = Department.deptNum(Integer.parseInt(resultSet.getString("DeptNumber")));
+				String major = resultSet.getString("Major");
+				String dept = resultSet.getString("Dept");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");
 				String address = resultSet.getString("Address");
 				
-				student = new StudentDto(id, pw, studentId, studentName, majorNumber, deptNumber, sex, phone, address);
+				student = new StudentDto(id, pw, studentId, studentName, major, dept, sex, phone, address);
 			}
 			
 		} catch (Exception e) {
@@ -194,7 +194,7 @@ public class StudentDao {
 			
 			// 수정된 학생 객체
 			if (run == 1) {
-				student = new StudentDto(id, pw, studentId, studentName, Major.majorNum(majorNumber), Department.deptNum(deptNumber), sex, phone, address);	
+				student = new StudentDto(id, pw, studentId, studentName, MajorUtil.majorNumToName(majorNumber), DeptUtil.deptNumToName(deptNumber), sex, phone, address);	
 			}
 			
 		} catch (Exception e) {
@@ -308,15 +308,15 @@ public class StudentDao {
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				Major majorNumber = Major.majorNum(Integer.parseInt(resultSet.getString("MajorNumber")));
-				Department deptNumber = Department.deptNum(Integer.parseInt(resultSet.getString("DeptNumber")));
+				String major = resultSet.getString("Major");
+				String dept = resultSet.getString("Dept");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");
 				String address = resultSet.getString("Address");
 				
 				// 학생 객체를 만들어서 리스트에 넣어줌
-				student = new StudentDto(id, pw, studentId, studentName, majorNumber, deptNumber, sex, phone, address);
+				student = new StudentDto(id, pw, studentId, studentName, major, dept, sex, phone, address);
 				dtos.add(student);
 				
 			}
@@ -377,15 +377,15 @@ public class StudentDao {
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				Major majorNumber = Major.majorNum(Integer.parseInt(resultSet.getString("MajorNumber")));
-				Department deptNumber = Department.deptNum(Integer.parseInt(resultSet.getString("DeptNumber")));
+				String major = resultSet.getString("Major");
+				String dept = resultSet.getString("Dept");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");
 				String address = resultSet.getString("Address");
 				
 				// 학생 객체를 만들어서 리스트에 넣어줌
-				student = new StudentDto(id, pw, studentId, studentName, majorNumber, deptNumber, sex, phone, address);
+				student = new StudentDto(id, pw, studentId, studentName, major, dept, sex, phone, address);
 				dtos.add(student);
 				
 			}

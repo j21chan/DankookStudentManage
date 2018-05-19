@@ -1,8 +1,5 @@
 package com.dankook.EGINE_MANAGE.Dto;
 
-import com.dankook.EGINE_MANAGE.Uility.Major;
-import com.dankook.EGINE_MANAGE.Uility.Department;
-
 public class StudentDto {
 	private String id;
 	private String pw;
@@ -10,8 +7,8 @@ public class StudentDto {
 	private int studentId;
 	private String studentName;
 	
-	private Major majorNumber;
-	private Department deptNumber;
+	private String major;
+	private String dept;
 	
 	private String sex;
 	private String phone;
@@ -21,22 +18,21 @@ public class StudentDto {
 	public StudentDto() {
 		
 	}
-	
-	// 모든 파라매터 이용한 생성자
-	public StudentDto(String id, String pw, int studentId, String studentName, Major majorNumber, Department deptNumber,
-					  String sex, String phone, String address) {
+
+	// 필드값을 이용한 생성자
+	public StudentDto(String id, String pw, int studentId, String studentName, String major, String dept, String sex,
+			String phone, String address) {
 		this.id = id;
 		this.pw = pw;
 		this.studentId = studentId;
 		this.studentName = studentName;
-		this.majorNumber = majorNumber;
-		this.deptNumber = deptNumber;
+		this.major = major;
+		this.dept = dept;
 		this.sex = sex;
 		this.phone = phone;
 		this.address = address;
 	}
-	
-	// Getter and Setter
+
 	public String getId() {
 		return id;
 	}
@@ -69,20 +65,20 @@ public class StudentDto {
 		this.studentName = studentName;
 	}
 
-	public Major getMajorNumber() {
-		return majorNumber;
+	public String getMajor() {
+		return major;
 	}
 
-	public void setMajorNumber(Major majorNumber) {
-		this.majorNumber = majorNumber;
+	public void setMajor(String major) {
+		this.major = major;
 	}
 
-	public Department getDeptNumber() {
-		return deptNumber;
+	public String getDept() {
+		return dept;
 	}
 
-	public void setDeptNumber(Department deptNumber) {
-		this.deptNumber = deptNumber;
+	public void setDept(String dept) {
+		this.dept = dept;
 	}
 
 	public String getSex() {
@@ -108,4 +104,5 @@ public class StudentDto {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 }

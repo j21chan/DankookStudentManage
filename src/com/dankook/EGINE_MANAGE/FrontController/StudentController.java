@@ -22,7 +22,7 @@ import com.dankook.EGINE_MANAGE.Command.StudentCommand.StudentSearchCommand;
  * 학생 관리 FrontController
  * 
  * *** 실행 순서 ***
- * => http://localhost:8080/student/[사용자 요청 로직]
+ * => http://localhost:8080/EGINE_MANAGE/student/[사용자 요청 로직]
  * => actionDo 호출
  * => 로직 수행
  * => 다음 페이지 foward
@@ -73,8 +73,8 @@ public class StudentController extends HttpServlet {
 		 * View Page Request
 		 */
 		
-		if(com.equals("")) {
-			viewPage = "";
+		if(com.equals("/student/test")) {
+			viewPage = "/views/STUDENT/test.jsp";
 		}
 
 		
@@ -119,8 +119,7 @@ public class StudentController extends HttpServlet {
 			viewPage = "/views/STUDENT/studentList.jsp";
 		}
 		
-		
-		// 로직 수행 후 viewPage에 맞게 foward 시켜준다
+		// 로직 수행 후 viewPage에 맞게 forward 시켜준다
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 		

@@ -227,6 +227,6 @@ public class ProductDao {
 			}
 		}
 		
-		return null;
+		return dtos;
 	}
 }

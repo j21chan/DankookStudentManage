@@ -30,7 +30,7 @@ public class ProductAddCommand implements ProductCommand {
 		// 물품 추가 성공
 		if(run == 1) {
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("ProductAdd", "add sucess");
+			httpSession.setAttribute("ProductAdd", "add success");
 		}
 	}
 }

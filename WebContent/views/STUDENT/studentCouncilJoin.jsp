@@ -13,7 +13,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       
-<title>회원정보 수정</title>
+<title>회원가입</title>
 </head>
 <body>
 	<jsp:include page = "/views/MAIN/header.html" flush="false"></jsp:include>
@@ -21,8 +21,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
-<h4 align="center">회원정보 수정</h4>
-<form action = "/EGINE_MANAGE/student/modify" method = "post">
+<h4 align="center">공과대학 학생회 회원가입</h4>
+<form action = "/EGINE_MANAGE/student/join" method = "post">
 <table border="1" style="width:50%" align="center" class="centered">
         <tr >
             <td>아이디<i class="material-icons prefix">account_box</i></td>
@@ -31,7 +31,8 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	id<!-- 사용자의 id  / 변경 불가 -->
+				          	<input type="text" name="id" id="autocomplete-input" class="autocomplete">
+				          	<label for="autocomplete-input">아이디를 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -47,7 +48,7 @@
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
 				          	<input type="password" name="pw" id="autocomplete-input" class="autocomplete">
-				          	<label for="autocomplete-input">새로운 비밀번호를 입력하세요</label>
+				          	<label for="autocomplete-input">비밀번호를 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -62,7 +63,8 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	학번<!-- 사용자의 학번  / 변경 불가 -->
+				          	<input type="text" name="StudentID" id="autocomplete-input" class="autocomplete">
+				          	<label for="autocomplete-input">학번을 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -77,7 +79,8 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	이름<!-- 사용자의 이름  / 변경 불가 -->
+				          	<input type="text" name="StudentName" id="autocomplete-input" class="autocomplete">
+				          	<label for="autocomplete-input">이름을 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -90,7 +93,7 @@
             <td>
                   <div class="input-field col s12">
 				    <select name="MajorNumber">
-				      <option value="" disabled selected>변경된 전공을 선택하세요.</option>
+				      <option value="" disabled selected>전공을 선택하세요.</option>
 				      <option value="응용컴퓨터공학과">응용컴퓨터공학과</option>
 				      <option value="소프트웨어학과">소프트웨어학과</option>
 				      <option value="모바일시스템공학과">모바일시스템공학과</option>
@@ -111,7 +114,7 @@
             <td>
                   <div class="input-field col s12">
 				    <select name="DeptNumber">
-				      <option value="" disabled selected>변경된 부서를 선택하세요.</option>
+				      <option value="" disabled selected>부서를 선택하세요.</option>
 				      <option value="기획부">기획부</option>
 				      <option value="운영부">운영부</option>
 				      <option value="연대사업부">연대사업부</option>
@@ -124,7 +127,7 @@
            
         <tr>
             <td>성별<i class="material-icons prefix">wc</i></td>
-            <td><!-- 성별 변경 불가 -->
+            <td>
 			    <label>
 			      <input class="with-gap" name="Sex" type="radio" value ="남 성" checked />
 			      <span>남 성</span> &nbsp;&nbsp;
@@ -144,7 +147,7 @@
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
 				          	<input type="text" name="Phone" id="autocomplete-input" class="autocomplete">
-				          	<label for="autocomplete-input">새로운 전화번호를 입력하세요</label>
+				          	<label for="autocomplete-input">전화번호를 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -159,7 +162,7 @@
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
 				          	<input type="text" name="Address" id="autocomplete-input" class="autocomplete">
-				          	<label for="autocomplete-input">새로운 주소를 입력하세요</label>
+				          	<label for="autocomplete-input">주소를 입력하세요</label>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -168,13 +171,11 @@
         </tr>
     </table>
     <br><center>
-		<button class="btn waves-effect blue accent-4" type="submit" name="action">수정
-		<i class="material-icons right">edit</i>
+		<button class="btn waves-effect blue accent-4" type="submit" name="action">회원가입
+		<i class="material-icons right">send</i>
 		</button>&nbsp;&nbsp;
-		<a class="waves-effect waves-light btn blue accent-4" href = "studentDelete.jsp">탈퇴<i class="material-icons right">delete_forever</i>
-		</a>&nbsp;&nbsp;	
-		<a class="waves-effect waves-light btn blue accent-4" href = "/EGINE_MANAGE/views/MAIN/loginMain.jsp">돌아가기<i class="material-icons right">keyboard_backspace</i>
-		</a></center>
+		<a class="waves-effect waves-light btn blue accent-4" href = "studentSelect.jsp">돌아가기<i class="material-icons right">keyboard_backspace</i>
+		</a></center>	  	
 	</form>
 </div>
 

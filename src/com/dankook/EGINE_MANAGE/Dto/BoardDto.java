@@ -13,7 +13,6 @@ public class BoardDto {
 	
 	// 모든 필드를 이용한 생성자
 	public BoardDto(int bNumber, String bId, String bTitle, String bContent, Timestamp bDate, int bHit) {
-		super();
 		this.bNumber = bNumber;
 		this.bId = bId;
 		this.bTitle = bTitle;
