@@ -169,6 +169,7 @@ public class BorrowDao {
 			
 			// 대여 정보를 DB에서 가져옴
 			while (resultSet.next()) {
+				System.out.println("대여 정보 가져옴");
 				int borrowNumber = Integer.parseInt(resultSet.getString("BorrowNumber"));
 				
 				int staffNumber = Integer.parseInt(resultSet.getString("StaffNumber"));
@@ -249,15 +250,14 @@ public class BorrowDao {
 					"\r\n" + 
 					"where a.StaffId = b.id\r\n" + 
 					"		and a.StudentId = c.id\r\n" + 
-					"		and ? like ? \r\n" + 
+					"		and " + type + " like ? \r\n" + 
 					"order by a.BorrowNumber asc;";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
 			
 			// preStatement 문장 완성
-			preStatement.setString(1, type);
-			preStatement.setString(2, "%" + keyword + "%");
+			preStatement.setString(1, "%" + keyword + "%");
 			
 			// 쿼리 실행
 			resultSet = preStatement.executeQuery();

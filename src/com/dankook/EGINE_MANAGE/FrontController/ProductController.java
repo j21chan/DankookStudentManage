@@ -84,13 +84,13 @@ public class ProductController extends HttpServlet {
 		if(com.equals("/product/add")) {
 			command = new ProductAddCommand();
 			command.execute(request, response);
-			viewPage = "/views/PRODUCT/productList.jsp";
+			viewPage = "/views/PRODUCT/productAddOk.jsp";
 			
 		// 물품 삭제 로직
 		} else if(com.equals("/product/delete")) {
 			command = new ProductDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/views/PRODUCT/productDelete.jsp";
+			viewPage = "/views/PRODUCT/productDeleteOk.jsp";
 			
 		// 물품 리스트 로직
 		} else if(com.equals("/product/list")) {

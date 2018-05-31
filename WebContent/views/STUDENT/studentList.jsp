@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8" import = "com.dankook.EGINE_MANAGE.Dto.StudentDto"%>
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -20,29 +20,29 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 	<div class="container">
-	<h4 align="center">일반 학생 리스트</h4><br>
+	<h4 align="center">학생 리스트</h4><br>
 		<div class="row">
 			<form action="/EGINE_MANAGE/student/search" method="post">
 				<div class="col s12">
 					<div class="input-field col s3 offset-s2">
-			        	<select name="searchType" id="searchType">
-			        		<option value="" disabled selected>타입</option>
-							<option value="StudentName">이름</option>
+			        	<select name="type" id="searchType">
+							<option value="StudentName" selected>이름</option>
 							<option value="StudentID">학번</option>
-							<option value="MajorNumber">학과</option>
+							<option value="MajorName">학과</option>
+							<option value="DeptName">부서</option>
 						</select>
 						<label>검색타입</label>
 			        </div>
 					<div class="col s3">
 						<label>학생 검색</label>
-						<input type="text" name="search" size="25" id="search">
+						<input type="text" name="keyword" size="25" id="search" required>
 					</div>
 					<div class="col s3" style ="position: absolute; left:1170px; top:320px;">
 						<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색
 							<i class="material-icons right">search</i>
 						</button>
 						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/list">전체 리스트
-						<i class="material-icons left">format_list_numbered</i>
+							<i class="material-icons left">format_list_numbered</i>
 						</a>
 					</div>
 				</div>
@@ -63,15 +63,15 @@
         </thead>
 
         <tbody>
-			<c:forEach items="${list}" var="dto">
+			<c:forEach items="${studentList}" var="dto">
 				<tr>
-					<td>${dto.StudentName}</td>
-					<td>${dto.StudentID}</td>
-					<td>${dto.MajorNumber}</td>
-					<td>${dto.DeptNumber}</td>
-					<td>${dto.Sex}</td>
-					<td>${dto.Phone}</td>
-					<td>${dto.Address}</td>
+					<td>${dto.studentName}</td>
+					<td>${dto.studentId}</td>
+					<td>${dto.major}</td>
+					<td>${dto.dept}</td>
+					<td>${dto.sex}</td>
+					<td>${dto.phone}</td>
+					<td>${dto.address}</td>
 				</tr>
 			</c:forEach>
 			</tbody>

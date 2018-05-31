@@ -135,7 +135,7 @@ public class StudentController extends HttpServlet {
 		} else if(com.equals("/student/search")) {
 			command = new StudentSearchCommand();
 			command.execute(request, response);
-			viewPage = "/views/STUDENT/studentSearch.jsp";
+			viewPage = "/views/STUDENT/studentList.jsp";
 		
 		// 학생회 학생 회원정보 리스트 로직
 		} else if(com.equals("/student/list")) {

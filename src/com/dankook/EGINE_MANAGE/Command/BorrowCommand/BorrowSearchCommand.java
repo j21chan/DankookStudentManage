@@ -36,7 +36,7 @@ public class BorrowSearchCommand implements BorrowCommand {
 		// 대여 검색에 성공하면 세션에 값 저장
 		if(dtos != null) {
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("borrowList", dtos);
+			httpSession.setAttribute("BorrowList", dtos);
 		}
 	}
 }

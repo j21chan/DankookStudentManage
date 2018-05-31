@@ -64,9 +64,9 @@
 						<td>${dto.productNumber}</td>
 						<td>${dto.productName}</td>
 						<td>
-						<a href = "/EGINE_MANAGE/product/delete?productNumber=${dto.productNumber}"></a>
-						<a class="btn-floating btn-large waves-effect waves-blue accent-4">
-						<i class="material-icons">close</i></a>
+						<a href = "/EGINE_MANAGE/product/delete?productNumber=${dto.productNumber}">
+							삭제
+						</a>
 						</td>						
 					</tr>
 				</c:forEach>

@@ -135,16 +135,6 @@ public class StudentDao {
 				String phone = resultSet.getString("Phone");
 				String address = resultSet.getString("Address");
 				
-//				System.out.println(id);
-//				System.out.println(pw);
-//				System.out.println(studentId);
-//				System.out.println(studentName);
-//				System.out.println(major);
-//				System.out.println(dept);
-//				System.out.println(sex);
-//				System.out.println(phone);
-//				System.out.println(address);
-				
 				student = new StudentDto(id, pw, studentId, studentName, major, dept, sex, phone, address);
 			}
 			
@@ -292,28 +282,23 @@ public class StudentDao {
 		ArrayList<StudentDto> dtos = new ArrayList<StudentDto>();
 		StudentDto student = null;
 		
+		query = "select id, pw, StudentID, StudentName, MajorName, DeptName, Sex, Phone, Address\r\n" + 
+				"from student, major, department\r\n" + 
+				"where student.MajorNumber = major.MajorNumber\r\n" + 
+				"	and student.DeptNumber = department.DeptNumber\r\n" + 
+				"	and " + type + " like ?";
+		
 		try {
 			// 커넥션 객체 가져오기
 			conn = dataSource.getConnection();
-			
-			// 검색 타입에 따른 쿼리문
-			if (type.equals("id")) {
-				
-			} else if (type.equals("studentId")) {
-				
-			} else if (type.equals("studentName")) {
-				
-			} else if (type.equals("major")) {
-				
-			} else if (type.equals("department")) {
-				
-			}
-			
+		
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
-
+			
+			preStatement.setString(1, "%" + keyword + "%");
+			
 			// 쿼리문 실행
-			resultSet = preStatement.executeQuery(query);
+			resultSet = preStatement.executeQuery();
 			System.out.println("Student Search 성공");
 			
 			// 학생 정보를 DB에서 가져옴
@@ -324,8 +309,8 @@ public class StudentDao {
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				String major = resultSet.getString("Major");
-				String dept = resultSet.getString("Dept");
+				String major = resultSet.getString("MajorName");
+				String dept = resultSet.getString("DeptName");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");
@@ -376,7 +361,10 @@ public class StudentDao {
 			conn = dataSource.getConnection();
 			
 			// 쿼리문
-			query = "select * from student";
+			query = "select id, pw, StudentID, StudentName, MajorName, DeptName, Sex, Phone, Address\r\n" + 
+					"from student, major, department\r\n" + 
+					"where student.MajorNumber = major.MajorNumber\r\n" + 
+					"	and student.DeptNumber = department.DeptNumber;";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
@@ -393,8 +381,8 @@ public class StudentDao {
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				String major = resultSet.getString("Major");
-				String dept = resultSet.getString("Dept");
+				String major = resultSet.getString("MajorName");
+				String dept = resultSet.getString("DeptNAme");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");

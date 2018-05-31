@@ -30,10 +30,10 @@ public class BorrowListCommand implements BorrowCommand {
 		
 		if(dtos != null) {
 			// 대여 리스트 가져오기 성공
-			httpSession.setAttribute("borrowList", dtos);
+			httpSession.setAttribute("BorrowList", dtos);
 		} else {
 			// 대여 리스트 가져오기 실패
-			httpSession.setAttribute("borrowList", null);
+			httpSession.setAttribute("BorrowList", null);
 		}
 	}
 }

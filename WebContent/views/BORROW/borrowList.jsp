@@ -45,7 +45,7 @@
 				        </div>
 						<div class="col s3">
 							<label>대여 검색</label>
-							<input type="text" name="search" size="25" id="search">
+							<input type="text" name="keyword" size="25" id="keyword">
 						</div>
 						<div class="col s3" style ="position: absolute; left:1160px; top:440px;">
 							<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색
