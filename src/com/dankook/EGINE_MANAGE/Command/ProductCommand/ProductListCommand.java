@@ -29,9 +29,7 @@ public class ProductListCommand implements ProductCommand {
 		// 물품 검색 성공
 		if(dtos != null) {
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("ProductSearch", dtos);
+			httpSession.setAttribute("ProductList", dtos);
 		}
-		
 	}
-
 }

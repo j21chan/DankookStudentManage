@@ -41,7 +41,8 @@
 						<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색
 							<i class="material-icons right">search</i>
 						</button>
-						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/list">전체 리스트<i class="material-icons left">format_list_numbered</i>
+						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/list">전체 리스트
+						<i class="material-icons left">format_list_numbered</i>
 						</a>
 					</div>
 				</div>
@@ -76,7 +77,8 @@
 			</tbody>
       </table>
     <br><br><center>
-    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/MAIN/loginMain.jsp">메인페이지로<i class="material-icons right">keyboard_backspace</i>
+    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/MAIN/loginMain.jsp">메인페이지로
+    <i class="material-icons right">keyboard_backspace</i>
 	</a></center>
       <!-- 페이징인데 넣어야대는건지 말아야대는건지 모르겠음
 	    <ul class="pagination" align="center">

@@ -28,8 +28,8 @@ public class StudentModifyCommand implements StudentCommand {
 		String studentName = request.getParameter("studentName");
 		
 		// 전공, 부서는 enum 이용해서 바꿔보기
-		int majorNumber = Integer.parseInt(request.getParameter("major"));
-		int deptNumber = Integer.parseInt(request.getParameter("depart"));
+		int majorNumber = Integer.parseInt(request.getParameter("majorNumber"));
+		int deptNumber = Integer.parseInt(request.getParameter("deptNumber"));
 		
 		String sex = request.getParameter("sex");
 		String phone = request.getParameter("phone");
@@ -45,12 +45,12 @@ public class StudentModifyCommand implements StudentCommand {
 			HttpSession httpSession = request.getSession();
 			
 			// 세션에 있던 기존 학생 정보 삭제
-			if (httpSession.getAttribute("StudentInfo") != null) {
-				httpSession.removeAttribute("StudentInfo");				
+			if (httpSession.getAttribute("studentInfo") != null) {
+				httpSession.removeAttribute("studentInfo");				
 			}
 			
 			// 새로운 학생 정보를 세션에 등록
-			httpSession.setAttribute("StudentInfo", dto);
+			httpSession.setAttribute("studentInfo", dto);
 		}
 	}
 }

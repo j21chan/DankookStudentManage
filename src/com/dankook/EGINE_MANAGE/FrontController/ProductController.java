@@ -71,8 +71,8 @@ public class ProductController extends HttpServlet {
 		 * View Page Request
 		 */
 		
-		if(com.equals("")) {
-			viewPage = "";
+		if(com.equals("/product/addView")) {
+			viewPage = "/views/PRODUCT/productAdd.jsp";
 		}
 		
 		
@@ -84,7 +84,7 @@ public class ProductController extends HttpServlet {
 		if(com.equals("/product/add")) {
 			command = new ProductAddCommand();
 			command.execute(request, response);
-			viewPage = "/views/PRODUCT/productAdd.jsp";
+			viewPage = "/views/PRODUCT/productList.jsp";
 			
 		// 물품 삭제 로직
 		} else if(com.equals("/product/delete")) {
@@ -102,7 +102,7 @@ public class ProductController extends HttpServlet {
 		} else if(com.equals("/product/search")) {
 			command = new ProductSearchCommand();
 			command.execute(request, response);
-			viewPage = "/views/PRODUCT/productSearch.jsp";
+			viewPage = "/views/PRODUCT/productList.jsp";
 		}
 		
 		

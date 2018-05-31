@@ -31,9 +31,9 @@ public class StudentLoginCommand implements StudentCommand {
 		
 		if (dto != null) {
 			// 로그인 성공
+			System.out.println("로그인 세션 셋");
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("StudentInfo", dto);
+			httpSession.setAttribute("studentInfo", dto);
 		}
 	}
-
 }

@@ -39,7 +39,7 @@
 		        
 		   
 				<div class="card-action">
-		        <a class="waves-effect waves-light btn-large light-blue lighten-1" href="studentJoin.jsp">
+		        <a class="waves-effect waves-light btn-large light-blue lighten-1" href="/EGINE_MANAGE/student/studentJoinView">
 		        <i class="material-icons right">create</i>가입하기</a>
 				</div>
       		</div>
@@ -55,7 +55,7 @@
 		        
 		   
 				<div class="card-action">
-		        <a class="waves-effect waves-light btn-large light-blue lighten-1" href="studentCouncilJoin.jsp">
+		        <a class="waves-effect waves-light btn-large light-blue lighten-1" href="/EGINE_MANAGE/student/staffJoinView">
 		        <i class="material-icons right">create</i>가입하기</a>
 				</div>
       		</div>

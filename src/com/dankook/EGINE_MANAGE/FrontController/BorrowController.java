@@ -71,38 +71,38 @@ public class BorrowController extends HttpServlet {
 		 * View Page Request
 		 */
 		
-		if(com.equals("")) {
-			viewPage = "";
+		// 대여 신청 페이지 이동
+		if(com.equals("/borrow/addView")) {
+			viewPage = "/views/BORROW/borrowAdd.jsp";
 		}
-
 		
 		/*
 		 * Logic Request
 		 */
 		
-		// 대여 신청 로직
+		// 대여 신청 로직 => 대여 완료 페이지 이동
 		if(com.equals("/borrow/add")) {
 			command = new BorrowAddCommand();
 			command.execute(request, response);
-			viewPage = "/views/BORROW/borrowAdd.jsp";
-			
-		// 대여 반납 로직
+			viewPage = "/views/BORROW/borrowAddOk.jsp";
+			 
+		// 대여 반납 로직 => 반납 완료 페이지 이동
 		} else if(com.equals("/borrow/delete")) {
 			command = new BorrowDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/views/BORROW/borrowDelete.jsp";
+			viewPage = "/views/BORROW/borrowDeleteOk.jsp";
 			
-		// 대여 리스트 로직
+		// 대여 리스트 로직 => 대여 리스트 페이지
 		} else if(com.equals("/borrow/list")) {
 			command = new BorrowListCommand();
 			command.execute(request, response);
 			viewPage = "/views/BORROW/borrowList.jsp";
 			
-		// 대여 검색 로직
+		// 대여 검색 로직 => 대여 리스트 페이지
 		} else if(com.equals("/borrow/search")) {
 			command = new BorrowSearchCommand();
 			command.execute(request, response);
-			viewPage = "/views/BORROW/borrowSearch.jsp";
+			viewPage = "/views/BORROW/borrowList.jsp";
 		}
 		
 		

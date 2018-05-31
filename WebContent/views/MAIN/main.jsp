@@ -15,6 +15,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       
 <title>단국대 공과대학 통합 포털 사이트</title>
+<!-- 
+	<script type="text/javascript">
+		window.history.forward();
+		function noBack() {
+			window.history.forward();
+		}
+	</script>
+ -->
 </head>
 <body>
 	<jsp:include page = "/views/MAIN/header.html" flush="false"></jsp:include>
@@ -38,23 +46,10 @@
  	 </div>
     </div>
 </div>
-<hr align="center">
+	
+	<!-- 메뉴바 -->
+	<jsp:include page ="/views/MENU/menu.jsp" flush = "false"/>
 
-	<nav>
-	  <div class="nav-wrapper blue accent-4">
-	 	 
-	      <ul id="nav-mobile" class="left hide-on-med-and-down">
-	        <li><a href="sass.html">공지사항</a></li>
-	        <li><a href="badges.html">자유게시판</a></li>
-	        <li><a href="collapsible.html">공과대학 학생회 게시판</a></li>
-	        <li><a href="badges.html">물품관리</a></li>
-	        <li><a href="">대여관리</a></li>
-	        <li><a href="/EGINE_MANAGE/views/STUDENT/studentSearch.jsp">학생관리</a></li>
-	      </ul>	  
-      </div>	
-	</nav>
-
-	<hr align="center">
 	<br>
       <ul class="collection with-header" style="width:800px">
         <li class="collection-header"><h4>공지사항</h4></li>
@@ -78,7 +73,7 @@
 					<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">로그인
 			   			<i class="material-icons right">send</i>
 			 		</button>&nbsp;&nbsp;
-			 		<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/STUDENT/studentSelect.jsp">회원가입</a>
+			 		<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/joinView">회원가입</a>
 				</div>
 			</div>
 		</form>
@@ -86,7 +81,7 @@
 		<div class = "row">
 		<div class="col s4">
 			<div class="fb-page" data-href="https://www.facebook.com/dkugukbap/" 
-			data-tabs="timeline" data-width="450" data-height="500" data-small-header="false" data-adapt-container-width="true" 
+			data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" 
 			data-hide-cover="false" data-show-facepile="true">
 			<blockquote cite="https://www.facebook.com/dkugukbap/" class="fb-xfbml-parse-ignore">
 			<a href="https://www.facebook.com/dkugukbap/">단국대학교 공과대학</a></blockquote>

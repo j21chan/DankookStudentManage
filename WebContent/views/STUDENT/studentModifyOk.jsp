@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
+    pageEncoding="UTF-8" import="java.util.*" errorPage = "/views/MAIN/errorPage.jsp"%>
+<%@ page import = "com.dankook.EGINE_MANAGE.Dto.StudentDto" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -18,6 +19,9 @@
 <title>회원정보 수정 완료</title>
 </head>
 <body>
+<%	
+	StudentDto student = (StudentDto) session.getAttribute("studentInfo");
+%>
 	<jsp:include page = "/views/MAIN/header.html" flush="false"></jsp:include>
 	
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
@@ -29,9 +33,10 @@
             <td>아이디<i class="material-icons prefix">account_box</i></td>
             <td>  
 	            <div class="row" style="height:50px">
-			    		<div class="col s12">
-				      		<div class="row">
-				        		<div class="input-field col s12" style="height:10px">				      		
+			    	<div class="col s12">
+				      	<div class="row">
+				        	<div class="input-field col s12" style="height:10px">
+				        		<%= student.getId() %>	
 				        	</div>
 			      		</div>
 		    		</div>
@@ -46,6 +51,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
+				        		<%= student.getPw() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -60,6 +66,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
+				        		<%= student.getStudentId() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -74,6 +81,7 @@
 			    		<div class="col s12">
 				      			<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
+				        		<%= student.getStudentName() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -88,7 +96,7 @@
 					<div class="col s12">
 						<div class="row">
 				  	      	<div class="input-field col s12" style="height:10px">
-
+								<%= student.getMajor() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -103,7 +111,7 @@
 					<div class="col s12">
 						<div class="row">
 				  	      	<div class="input-field col s12" style="height:10px">
-		        	
+		        				<%= student.getDept() %>
 							</div>
 			      		</div>
 		    		</div>
@@ -118,7 +126,7 @@
 					<div class="col s12">
 						<div class="row">
 				  	      	<div class="input-field col s12" style="height:10px">
-			  
+			  					<%= student.getSex() %>
 			      		</div>				        	
 			      		</div>
 		    		</div>
@@ -133,6 +141,7 @@
 					<div class="col s12">
 						<div class="row">
 				  	      	<div class="input-field col s12" style="height:10px">
+				  	      		<%= student.getPhone() %>
 				        	</div>
 			      		</div>
 					</div>
@@ -147,6 +156,7 @@
 					<div class="col s12">
 						<div class="row">
 				  	      	<div class="input-field col s12" style="height:10px">
+				  	      		<%= student.getAddress() %>
 				        	</div>
 			      		</div>
 					</div>
@@ -155,7 +165,8 @@
         </tr>
     </table>
     <br>
-    	<p align ="center"><a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/MAIN/loginMain.jsp">메인페이지로<i class="material-icons right">reply</i>
+    	<p align ="center"><a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/main">메인 페이지
+    	<i class="material-icons right">reply</i>
 		</a></p>	   	
 	</div>
     <script type="text/javascript" src="/EGINE_MANAGE/js/jquery-3.3.1.min.js"></script>

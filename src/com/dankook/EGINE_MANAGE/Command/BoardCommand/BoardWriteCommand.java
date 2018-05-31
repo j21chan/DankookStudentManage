@@ -20,7 +20,6 @@ public class BoardWriteCommand implements BoardCommand {
 		}
 		
 		// 각 파라매터 정보 가져오기
-		int bNumber = Integer.parseInt(request.getParameter("bNumber"));
 		String bId = request.getParameter("bId");
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
@@ -29,13 +28,12 @@ public class BoardWriteCommand implements BoardCommand {
 		BoardDao dao = new BoardDao();
 		
 		// 게시판 쓰기 로직 실행
-		int run = dao.writeBoard(bNumber, bId, bTitle, bContent); 
+		int run = dao.writeBoard(bId, bTitle, bContent); 
 		
 		if (run == 1) {
 			// 게시판 쓰기 성공
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("board", "board");
+			httpSession.setAttribute("boardWrite", "boardWrite");
 		}
-		
 	}
 }

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dankook.EGINE_MANAGE.Dao.StudentDao;
+import com.dankook.EGINE_MANAGE.Dto.StudentDto;
+import com.dankook.EGINE_MANAGE.Uility.DeptUtil;
+import com.dankook.EGINE_MANAGE.Uility.MajorUtil;
 
 public class StudentJoinCommand implements StudentCommand {
 
@@ -27,13 +30,15 @@ public class StudentJoinCommand implements StudentCommand {
 		String studentName = request.getParameter("studentName");
 		
 		// 전공, 부서는 enum 이용해서 바꿔보기
-		int majorNumber = Integer.parseInt(request.getParameter("major"));
-		int deptNumber = Integer.parseInt(request.getParameter("depart"));
+		int majorNumber = Integer.parseInt(request.getParameter("majorNumber"));
+		int deptNumber = Integer.parseInt(request.getParameter("deptNumber"));
 		
 		String sex = request.getParameter("sex");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
-	
+		
+		StudentDto student = new StudentDto(id, pw, studentId, studentName, MajorUtil.majorNumToName(majorNumber), DeptUtil.deptNumToName(deptNumber), sex, phone, address);
+		
 		// 학생 Dao 객체 생성
 		StudentDao dao = new StudentDao();
 		
@@ -43,7 +48,10 @@ public class StudentJoinCommand implements StudentCommand {
 		if (run == 1) {
 			// 회원가입 성공
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("join", "join");
+			httpSession.setAttribute("join", student);
+		} else {
+			HttpSession httpSession = request.getSession();
+			httpSession.setAttribute("join", null);
 		}
 	}
 }

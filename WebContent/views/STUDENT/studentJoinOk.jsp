@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
+    pageEncoding="UTF-8" import="java.util.*" errorPage = "/views/MAIN/errorPage.jsp"%>
+<%@ page import = "com.dankook.EGINE_MANAGE.Dto.StudentDto" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -18,21 +19,26 @@
 <title>회원가입 완료</title>
 	</head>
 <body>
+<%	
+	StudentDto student = (StudentDto) session.getAttribute("join");
+%>
+
 	<jsp:include page = "/views/MAIN/header.html" flush="false"></jsp:include>
 	
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
     <h4 align="center"><span class="blue-text text-darken-2">회원가입이 정상적으로 되었습니다.</span></h4><br>
-    <h6 align="center"><span class="blue-text text-darken-2">님의 가입을 축하드립니다.</span></h6>
+    <h6 align="center"><span class="blue-text text-darken-2"><%= student.getStudentName() %> 님의 가입을 축하드립니다.</span></h6>
 	<table border="1" style="width:50%" align="center" class="centered"	>
         <tr >
             <td>아이디<i class="material-icons prefix">account_box</i></td>
             <td>  
 	            <div class="row" style="height:50px">
-			    		<div class="col s12">
-				      		<div class="row">
-				        		<div class="input-field col s12" style="height:10px">				      		
+			    	<div class="col s12">
+				      	<div class="row">
+				        	<div class="input-field col s1" style="height:10px">
+				        		<%= student.getId() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -44,9 +50,10 @@
             <td>비밀번호<i class="material-icons prefix">lock</i></td>
             <td>  
 	            <div class="row" style="height:50px">
-			    		<div class="col s12">
-				      		<div class="row">
-				        	<div class="input-field col s12" style="height:10px">
+		    		<div class="col s12">
+				      	<div class="row">
+				        	<div class="input-field col s1" style="height:10px">
+				        		<%= student.getPw() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -60,7 +67,8 @@
 	            <div class="row" style="height:50px">
 			    		<div class="col s12">
 				      		<div class="row">
-				        	<div class="input-field col s12" style="height:10px">
+				        	<div class="input-field col s1" style="height:10px">
+				        		<%= student.getStudentId() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -72,9 +80,10 @@
             <td>이름<i class="material-icons prefix">face</i></td>
             <td>
 	            <div class="row" style="height:50px">
-			    		<div class="col s12">
-				      			<div class="row">
-				        	<div class="input-field col s12" style="height:10px">
+			    	<div class="col s12">
+				      	<div class="row">
+				        	<div class="input-field col s2" style="height:10px">
+				        		<%= student.getStudentName() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -88,8 +97,8 @@
 				<div class="input-field col s12">
 					<div class="col s12">
 						<div class="row">
-				  	      	<div class="input-field col s12" style="height:10px">
-
+				  	      	<div class="input-field col s4" style="height:10px">
+								<%= student.getMajor() %>
 				        	</div>
 			      		</div>
 		    		</div>
@@ -103,8 +112,8 @@
                   <div class="input-field col s12">
 					<div class="col s12">
 						<div class="row">
-				  	      	<div class="input-field col s12" style="height:10px">
-		        	
+				  	      	<div class="input-field col s3" style="height:10px">
+		        				<%= student.getDept() %>
 							</div>
 			      		</div>
 		    		</div>
@@ -118,8 +127,8 @@
 			    <div class="input-field col s12">
 					<div class="col s12">
 						<div class="row">
-				  	      	<div class="input-field col s12" style="height:10px">
-			  
+				  	      	<div class="input-field col s2" style="height:10px">
+			  					<%= student.getSex() %>
 			      		</div>				        	
 			      		</div>
 		    		</div>
@@ -133,7 +142,8 @@
 			    <div class="input-field col s12">
 					<div class="col s12">
 						<div class="row">
-				  	      	<div class="input-field col s12" style="height:10px">
+				  	      	<div class="input-field col s4" style="height:10px">
+				  	      		<%= student.getPhone() %>
 				        	</div>
 			      		</div>
 					</div>
@@ -147,7 +157,8 @@
 			    <div class="input-field col s12">
 					<div class="col s12">
 						<div class="row">
-				  	      	<div class="input-field col s12" style="height:10px">
+				  	      	<div class="input-field col s8" style="height:10px">
+				  	      		<%= student.getAddress() %>
 				        	</div>
 			      		</div>
 					</div>
@@ -156,7 +167,8 @@
         </tr>
     </table>
     <br>
-    	<p align ="center"><a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/MAIN/main.jsp">메인페이지로<i class="material-icons right">reply</i>
+    	<p align ="center"><a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/view/main">메인 페이지
+    	<i class="material-icons right">reply</i>
 		</a></p>	   	
 	</div>
     <script type="text/javascript" src="/EGINE_MANAGE/js/jquery-3.3.1.min.js"></script>

@@ -29,9 +29,11 @@ public class BorrowListCommand implements BorrowCommand {
 		HttpSession httpSession = request.getSession();
 		
 		if(dtos != null) {
+			// 대여 리스트 가져오기 성공
 			httpSession.setAttribute("borrowList", dtos);
 		} else {
-			httpSession.setAttribute("borrowList", dtos);
+			// 대여 리스트 가져오기 실패
+			httpSession.setAttribute("borrowList", null);
 		}
 	}
 }

@@ -100,35 +100,50 @@ public class StudentDao {
 		try {
 			// 커넥션 객체 가져오기
 			conn = dataSource.getConnection();
-			
+					
 			// 쿼리문
-			query = "select * from student where id = ? and pw = ?";
+			query = "select id, pw, StudentID, StudentName, MajorName, DeptName, Sex, Phone, Address "
+					+ "from student, major, department "
+					+ "where student.MajorNumber = major.MajorNumber "
+					+ "and student.DeptNumber = department.DeptNumber "
+					+ "and id=? and pw=?";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
-			
+
 			// prepared Statement 쿼리문 만들기
 			preStatement.setString(1, sID);
 			preStatement.setString(2, sPW);
 			
 			// 쿼리문 실행
-			resultSet = preStatement.executeQuery(query);
-			System.out.println("Student Login 성공");
+			resultSet = preStatement.executeQuery();
 			
 			// 학생 정보를 DB에서 가져옴
 			if (resultSet.next()) {
+				System.out.println("Student Login 성공");
+				
 				String id = resultSet.getString("id");
 				String pw = resultSet.getString("pw");
 				
 				int studentId = Integer.parseInt(resultSet.getString("StudentID"));
 				String studentName = resultSet.getString("StudentName");
 				
-				String major = resultSet.getString("Major");
-				String dept = resultSet.getString("Dept");
+				String major = resultSet.getString("MajorName");
+				String dept = resultSet.getString("DeptName");
 				
 				String sex = resultSet.getString("Sex");
 				String phone = resultSet.getString("Phone");
 				String address = resultSet.getString("Address");
+				
+//				System.out.println(id);
+//				System.out.println(pw);
+//				System.out.println(studentId);
+//				System.out.println(studentName);
+//				System.out.println(major);
+//				System.out.println(dept);
+//				System.out.println(sex);
+//				System.out.println(phone);
+//				System.out.println(address);
 				
 				student = new StudentDto(id, pw, studentId, studentName, major, dept, sex, phone, address);
 			}
@@ -137,6 +152,7 @@ public class StudentDao {
 			// 쿼리 에러
 			e.printStackTrace();
 			System.out.println("Student Login 실패");
+			student = null;
 		} finally {
 			// 커넥션 객체 닫기
 			try {
@@ -366,7 +382,7 @@ public class StudentDao {
 			preStatement = conn.prepareStatement(query);
 			
 			// 쿼리문 실행
-			resultSet = preStatement.executeQuery(query);
+			resultSet = preStatement.executeQuery();
 			
 			
 			// 학생 정보를 DB에서 가져옴

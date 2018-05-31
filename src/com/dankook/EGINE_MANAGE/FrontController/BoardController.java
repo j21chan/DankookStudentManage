@@ -73,40 +73,44 @@ public class BoardController extends HttpServlet {
 		 * View Page Request
 		 */
 		
-		if(com.equals("")) {
-			viewPage = "";
+		// 게시판 쓰기 화면으로 이동
+		if(com.equals("/board/writeView")) {
+			viewPage = "/views/BOARD/boardWrite.jsp";
+		
+		// 게시판 수정 화면으로 이동 
+		} else if(com.equals("/board/modifyView")) {
+			viewPage = "/views/BOARD/boardModify.jsp";
 		}
-
 		
 		/*
 		 * Logic Request
 		 */
 		
-		// 게시판 쓰기 로직
+		// 게시판 쓰기 로직 => 게시판 전체 리스트
 		if(com.equals("/board/write")) {
 			command = new BoardWriteCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardWrite.jsp";
+			viewPage = "/views/BOARD/boardList.jsp";
 			
-		// 게시판 삭제 로직
+		// 게시판 삭제 로직  => 게시판 전체 리스트
 		} else if(com.equals("/board/delete")) {
 			command = new BoardDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardDelete.jsp";
+			viewPage = "/views/BOARD/boardList.jsp";
 			
-		// 게시판 수정 로직
+		// 게시판 수정 로직  => 게시판 전체 리스트
 		} else if(com.equals("/board/modify")) {
 			command = new BoardModifyCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardModify.jsp";
+			viewPage = "/views/BOARD/boardList.jsp";
 			
-		// 게시판 내용 보기 로직
+		// 게시판 내용 보기 로직  => 게시판 보기
 		} else if(com.equals("/board/view")) {
 			command = new BoardViewCommand();
 			command.execute(request, response);
 			viewPage = "/views/BOARD/boardView.jsp";
 		
-		// 게시판 리스트 로직
+		// 게시판 리스트 로직  => 게시판 전체 리스트
 		} else if(com.equals("/board/list")) {
 			command = new BoardListCommand();
 			command.execute(request, response);

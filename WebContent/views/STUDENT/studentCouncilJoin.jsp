@@ -63,7 +63,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="StudentID" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="studentId" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">학번을 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -79,7 +79,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="StudentName" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="studentName" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">이름을 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -92,17 +92,15 @@
             <td>전공<i class="material-icons prefix">grade</i></td>
             <td>
                   <div class="input-field col s12">
-				    <select name="MajorNumber">
-				      <option value="" disabled selected>전공을 선택하세요.</option>
-				      <option value="응용컴퓨터공학과">응용컴퓨터공학과</option>
-				      <option value="소프트웨어학과">소프트웨어학과</option>
-				      <option value="모바일시스템공학과">모바일시스템공학과</option>
-				   	  <option value="고분자공학과">고분자공학과</option>
-				      <option value="파이버시스템공학과">파이버시스템공학과</option>
-				      <option value="토목환경공학과">토목환경공학과</option>
-				      <option value="기계공학과">기계공학과</option>
-				      <option value="화학공학과">화학공학과</option>
-				      <option value="전자전기공학부">전자전기공학부</option>
+				    <select name="majorNumber">
+				      <option value="5">응용컴퓨터공학과</option>
+				      <option value="4">소프트웨어학과</option>
+				   	  <option value="2">고분자공학과</option>
+				      <option value="3">파이버시스템공학과</option>
+				      <option value="6">토목환경공학과</option>
+				      <option value="7">기계공학과</option>
+				      <option value="8">화학공학과</option>
+				      <option value="1">전자전기공학부</option>
 				    </select>
 				    <label>전공 선택</label>
 				  </div>
@@ -113,12 +111,15 @@
             <td>부서<i class="material-icons prefix">business</i></td>
             <td>
                   <div class="input-field col s12">
-				    <select name="DeptNumber">
+				    <select name="deptNumber">
 				      <option value="" disabled selected>부서를 선택하세요.</option>
-				      <option value="기획부">기획부</option>
-				      <option value="운영부">운영부</option>
-				      <option value="연대사업부">연대사업부</option>
-				   	  <option value="운영부">운영부</option>
+				      <option value="0">일반학생</option>
+				      <option value="1">신입생</option>
+				      <option value="2">기획부</option>
+				      <option value="3">연대사업부</option>
+				      <option value="4">운영부</option>
+				      <option value="5">홍보부</option>
+				      <option value="6">회장부회장</option>
 				    </select>
 				    <label>부서 선택</label>
 				  </div>                	
@@ -129,11 +130,11 @@
             <td>성별<i class="material-icons prefix">wc</i></td>
             <td>
 			    <label>
-			      <input class="with-gap" name="Sex" type="radio" value ="남 성" checked />
+			      <input class="with-gap" name="sex" type="radio" value ="남성" checked />
 			      <span>남 성</span> &nbsp;&nbsp;
 			    </label>	
 			    <label>
-			      <input class="with-gap" name="Sex" type="radio" value ="여 성"/>
+			      <input class="with-gap" name="sex" type="radio" value ="여성"/>
 			      <span>여 성</span>
 			    </label>
             </td>
@@ -146,7 +147,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="Phone" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="phone" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">전화번호를 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -161,7 +162,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="Address" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="address" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">주소를 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -174,7 +175,7 @@
 		<button class="btn waves-effect blue accent-4" type="submit" name="action">회원가입
 		<i class="material-icons right">send</i>
 		</button>&nbsp;&nbsp;
-		<a class="waves-effect waves-light btn blue accent-4" href = "studentSelect.jsp">돌아가기<i class="material-icons right">keyboard_backspace</i>
+		<a class="waves-effect waves-light btn blue accent-4" href = "/EGINE_MANAGE/student/joinView">돌아가기<i class="material-icons right">keyboard_backspace</i>
 		</a></center>	  	
 	</form>
 </div>

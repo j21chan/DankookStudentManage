@@ -137,14 +137,16 @@ public class ProductDao {
 			conn = dataSource.getConnection();
 			
 			// 쿼리문 생성
-			query = "select * from product where ProductName like %?%";
+			query = "select * from product where ProductName like ?";
 			
 			// 쿼리문 완성
 			preStatement = conn.prepareStatement(query);
-			preStatement.setString(1, productName);
-			
+						
+			// 쿼리문 만들기
+			preStatement.setString(1, "%" + productName + "%");
+						
 			// 쿼리문 실행 후 결과 얻기
-			resultSet = preStatement.executeQuery(query);
+			resultSet = preStatement.executeQuery();
 			
 			// 물품 객체 받아오기
 			while(resultSet.next()) {
@@ -199,7 +201,7 @@ public class ProductDao {
 			preStatement = conn.prepareStatement(query);
 			
 			// 쿼리문 실행 후 결과 얻기
-			resultSet = preStatement.executeQuery(query);
+			resultSet = preStatement.executeQuery();
 			
 			// 물품 객체 받아오기
 			while(resultSet.next()) {

@@ -7,8 +7,6 @@ public class BoardSearchCommand implements BoardCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 
 	}
-
 }

@@ -4,6 +4,8 @@ public class DeptUtil {
 	// 부서 번호에 따른 부서 명 반환
 	public static String deptNumToName(int num) {
 		switch(num) {
+		case 0:
+			return "일반학생";
 		case 1:
 			return "신입생";
 		case 2:

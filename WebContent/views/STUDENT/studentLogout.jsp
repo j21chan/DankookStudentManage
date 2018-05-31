@@ -9,7 +9,7 @@
 <body>
 <%
 	session.invalidate();
-	response.sendRedirect("/EGINE_MANAGE/views/MAIN/main.jsp");
+	response.sendRedirect("/EGINE_MANAGE/student/main");
 %>
 </body>
 </html>

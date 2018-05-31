@@ -2,10 +2,15 @@ package com.dankook.EGINE_MANAGE.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.dankook.EGINE_MANAGE.Dto.BorrowDto;
 
 public class BorrowDao {
 	// DaataSource 가져오는 과정
@@ -118,6 +123,189 @@ public class BorrowDao {
 	
 	
 	// 전체 대여 목록 로직
+	public ArrayList<BorrowDto> listBorrow() {
+		
+		// 쿼리문, 연결 객체
+		PreparedStatement preStatement = null;
+		Connection conn = null;
+		ResultSet resultSet = null;
+		String query = null;
+		
+		// 대여 리스트, 대여 객체
+		ArrayList<BorrowDto> dtos = new ArrayList<BorrowDto>();
+		BorrowDto borrow = null;
+		
+		try {
+			// 커넥션 객체 가져오기
+			conn = dataSource.getConnection();
+			
+			// 쿼리문
+			query = "select a.BorrowNumber as BorrowNumber,\r\n" + 
+					"		 b.StudentId as StaffNumber, b.StudentName as StaffName, b.MajorName as StaffMajor, b.Phone as StaffPhone,\r\n" + 
+					"		 c.StudentId as StudentNumber, c.StudentName as StudentName, c.MajorName as StudentMajor, c.Phone as StudentPhone,\r\n" + 
+					"		 a.ProductName as ProductName, a.ProductIndex as ProductIndex, a.BorrowDate as BorrowDate\r\n" + 
+					"from (select BorrowNumber, StaffId, StudentId, ProductName, ProductIndex, BorrowDate\r\n" + 
+					"		from borrow_list, product\r\n" + 
+					"		where borrow_list.ProductNumber = product.ProductNumber) as a,\r\n" + 
+					"\r\n" + 
+					"	  (select id, StudentId, StudentName, MajorName, Phone\r\n" + 
+					"	  	from student, major\r\n" + 
+					"	  	where student.MajorNumber = major.MajorNumber) as b,\r\n" + 
+					"	  	\r\n" + 
+					"	  (select id, StudentId, StudentName, MajorName, Phone\r\n" + 
+					"	   from student, major\r\n" + 
+					"	   where student.MajorNumber = major.MajorNumber) as c\r\n" + 
+					"\r\n" + 
+					"where a.StaffId = b.id\r\n" + 
+					"		and a.StudentId = c.id\r\n" + 
+					"		\r\n" + 
+					"order by a.BorrowNumber asc;";
+			
+			// prepared Statement에 쿼리문 넣기
+			preStatement = conn.prepareStatement(query);
+
+			resultSet = preStatement.executeQuery();
+			System.out.println("Borrow List 성공");
+			
+			// 대여 정보를 DB에서 가져옴
+			while (resultSet.next()) {
+				int borrowNumber = Integer.parseInt(resultSet.getString("BorrowNumber"));
+				
+				int staffNumber = Integer.parseInt(resultSet.getString("StaffNumber"));
+				String staffName = resultSet.getString("StaffName");
+				String staffMajor = resultSet.getString("StaffMajor");
+				String staffPhone = resultSet.getString("StaffPhone");
+				
+				int studentNumber = Integer.parseInt(resultSet.getString("StudentNumber"));
+				String studentName = resultSet.getString("StudentName");
+				String studentMajor = resultSet.getString("StudentMajor");
+				String studentPhone = resultSet.getString("StudentPhone");
+				
+				int productIndex = Integer.parseInt(resultSet.getString("ProductIndex"));
+				String productName = resultSet.getString("ProductName");
+				
+				Timestamp borrowDate = resultSet.getTimestamp("BorrowDate");
+				
+				// 학생 객체를 만들어서 리스트에 넣어줌
+				borrow = new BorrowDto(borrowNumber,
+									   staffNumber, staffName, staffMajor, staffPhone,
+									   studentNumber, studentName, studentMajor, studentPhone,
+									   productIndex, productName, borrowDate);
+				dtos.add(borrow);
+			}
+			
+		} catch (Exception e) {
+			// 쿼리 에러
+			e.printStackTrace();
+			System.out.println("Borrow List 실패");
+			
+		} finally {
+			// 커넥션 객체 닫기
+			try {
+				if (preStatement != null) { preStatement.close(); }
+				if (conn != null) { conn.close(); }
+				if (resultSet != null) { resultSet.close(); }
+			} catch (Exception e2) {
+				// 커넥션 객체 닫기 에러
+ 				e2.printStackTrace();
+			}
+		}
+		return dtos;
+	}
+	
 	
 	// 대여 검색 로직
+	public ArrayList<BorrowDto> searchBorrow(String type, String keyword) {
+		// 쿼리문, 연결 객체
+		PreparedStatement preStatement = null;
+		Connection conn = null;
+		ResultSet resultSet = null;
+		String query = null;
+		
+		// 대여 리스트, 대여 객체
+		ArrayList<BorrowDto> dtos = new ArrayList<BorrowDto>();
+		BorrowDto borrow = null;
+		
+		try {
+			// 커넥션 객체 가져오기
+			conn = dataSource.getConnection();
+			
+			// 쿼리문
+			query = "select a.BorrowNumber as BorrowNumber,\r\n" + 
+					"		 b.StudentId as StaffNumber, b.StudentName as StaffName, b.MajorName as StaffMajor, b.Phone as StaffPhone,\r\n" + 
+					"		 c.StudentId as StudentNumber, c.StudentName as StudentName, c.MajorName as StudentMajor, c.Phone as StudentPhone,\r\n" + 
+					"		 a.ProductName as ProductName, a.ProductIndex as ProductIndex, a.BorrowDate as BorrowDate\r\n" + 
+					"from (select BorrowNumber, StaffId, StudentId, ProductName, ProductIndex, BorrowDate\r\n" + 
+					"		from borrow_list, product\r\n" + 
+					"		where borrow_list.ProductNumber = product.ProductNumber) as a,\r\n" + 
+					"\r\n" + 
+					"	  (select id, StudentId, StudentName, MajorName, Phone\r\n" + 
+					"	  	from student, major\r\n" + 
+					"	  	where student.MajorNumber = major.MajorNumber) as b,\r\n" + 
+					"	  	\r\n" + 
+					"	  (select id, StudentId, StudentName, MajorName, Phone\r\n" + 
+					"	   from student, major\r\n" + 
+					"	   where student.MajorNumber = major.MajorNumber) as c\r\n" + 
+					"\r\n" + 
+					"where a.StaffId = b.id\r\n" + 
+					"		and a.StudentId = c.id\r\n" + 
+					"		and ? like ? \r\n" + 
+					"order by a.BorrowNumber asc;";
+			
+			// prepared Statement에 쿼리문 넣기
+			preStatement = conn.prepareStatement(query);
+			
+			// preStatement 문장 완성
+			preStatement.setString(1, type);
+			preStatement.setString(2, "%" + keyword + "%");
+			
+			// 쿼리 실행
+			resultSet = preStatement.executeQuery();
+			System.out.println("Borrow Search 성공");
+			
+			// 대여 정보를 DB에서 가져옴
+			while (resultSet.next()) {
+				int borrowNumber = Integer.parseInt(resultSet.getString("BorrowNumber"));
+				
+				int staffNumber = Integer.parseInt(resultSet.getString("StaffNumber"));
+				String staffName = resultSet.getString("StaffName");
+				String staffMajor = resultSet.getString("StaffMajor");
+				String staffPhone = resultSet.getString("StaffPhone");
+				
+				int studentNumber = Integer.parseInt(resultSet.getString("StudentNumber"));
+				String studentName = resultSet.getString("StudentName");
+				String studentMajor = resultSet.getString("StudentMajor");
+				String studentPhone = resultSet.getString("StudentPhone");
+				
+				int productIndex = Integer.parseInt(resultSet.getString("ProductIndex"));
+				String productName = resultSet.getString("ProductName");
+				
+				Timestamp borrowDate = resultSet.getTimestamp("BorrowDate");
+				
+				// 학생 객체를 만들어서 리스트에 넣어줌
+				borrow = new BorrowDto(borrowNumber,
+									   staffNumber, staffName, staffMajor, staffPhone,
+									   studentNumber, studentName, studentMajor, studentPhone,
+									   productIndex, productName, borrowDate);
+				dtos.add(borrow);
+			}
+			
+		} catch (Exception e) {
+			// 쿼리 에러
+			e.printStackTrace();
+			System.out.println("Borrow Search 실패");
+			
+		} finally {
+			// 커넥션 객체 닫기
+			try {
+				if (preStatement != null) { preStatement.close(); }
+				if (conn != null) 		  { conn.close(); }
+				if (resultSet != null) 	  { resultSet.close(); }
+			} catch (Exception e2) {
+				// 커넥션 객체 닫기 에러
+ 				e2.printStackTrace();
+			}
+		}
+		return dtos;
+	}
 }

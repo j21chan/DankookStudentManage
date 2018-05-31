@@ -32,9 +32,10 @@ public class BorrowDeleteCommand implements BorrowCommand {
 		
 		// 물품 반납 성공
 		if(run == 1) {
-			httpSession.setAttribute("DeleteBorrow", "success");
+			httpSession.setAttribute("borrowDelete", "success");
 		} else {
-			httpSession.setAttribute("DeleteBorrow", null);
+			// 물품 삭제 실패
+			httpSession.setAttribute("borrowDelete", null);
 		}
 	}
 }

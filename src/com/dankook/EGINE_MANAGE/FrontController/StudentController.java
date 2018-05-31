@@ -73,10 +73,35 @@ public class StudentController extends HttpServlet {
 		 * View Page Request
 		 */
 		
-		if(com.equals("/student/test")) {
-			viewPage = "/views/STUDENT/test.jsp";
+		// 메인 화면
+		if(com.equals("/student/main")) {
+			viewPage = "/views/MAIN/loginMain.jsp";
+			
+		// 회원가입 선택 화면
+		} else if(com.equals("/student/joinView")) {
+			viewPage = "/views/STUDENT/studentSelect.jsp";
+		
+		// 일반 학생 회원가입 화면
+		} else if(com.equals("/student/studentJoinView")) {
+			viewPage = "/views/STUDENT/studentJoin.jsp";
+		
+		// 학생회 학생 회원가입 화면
+		} else if(com.equals("/student/staffJoinView")) {
+			viewPage = "/views/STUDENT/studentCouncilJoin.jsp";
+			
+		// 회원 삭제 화면
+		} else if(com.equals("/student/deleteView")) {
+			viewPage = "/views/STUDENT/studentDelete.jsp";
+			
+		// 회원 수정 화면
+		} else if(com.equals("/student/modifyView")) {
+			viewPage = "/views/STUDENT/studentModify.jsp";
+		
+		// 로그아웃 화면
+		} else if(com.equals("/student/logout")) {
+			viewPage = "/views/STUDENT/studentLogout.jsp";
 		}
-
+		
 		
 		/*
 		 * Logic Request
@@ -86,25 +111,25 @@ public class StudentController extends HttpServlet {
 		if(com.equals("/student/join")) {
 			command = new StudentJoinCommand();
 			command.execute(request, response);
-			viewPage = "/views/STUDENT/studentJoin.jsp";
+			viewPage = "/views/STUDENT/studentJoinOk.jsp";
 		
 		// 학생 로그인 로직
 		} else if(com.equals("/student/login")) {
 			command = new StudentLoginCommand();
 			command.execute(request, response);
-			viewPage = "/views/STUDENT/studentLogin.jsp";
+			viewPage = "/views/MAIN/loginMain.jsp";
 			
 		// 학생 회원정보 수정 로직
 		} else if(com.equals("/student/modify")) {
 			command = new StudentModifyCommand();
 			command.execute(request, response);
-			viewPage = "/views/STUDENT/studentModify.jsp";
+			viewPage = "/views/STUDENT/studentModifyOk.jsp";
 		
 		// 학생 회원 탈퇴 로직
 		} else if(com.equals("/student/delete")) {
 			command = new StudentDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/views/STUDENT/studentDelete.jsp";
+			viewPage = "/views/STUDENT/studentDeleteOk.jsp";
 		
 		// 학생회 학생 검색 로직
 		} else if(com.equals("/student/search")) {
