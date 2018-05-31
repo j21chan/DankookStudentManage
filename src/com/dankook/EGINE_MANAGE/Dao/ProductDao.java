@@ -31,9 +31,11 @@ public class ProductDao {
 	public int addProduct (String productName) {
 		
 		// 쿼리문, 연결 객체
+		PreparedStatement preStatement1 = null;
 		PreparedStatement preStatement = null;
 		Connection conn = null;
 		String query = null;
+		String query1 = null;
 		
 		// 성공값 1:성공, 0: 실패
 		int run = 0;
@@ -43,8 +45,15 @@ public class ProductDao {
 			conn = dataSource.getConnection();
 			
 			// 쿼리문
+			query1 = "ALTER TABLE product auto_increment = 1 ";
 			query = "insert into product(ProductName) values (?)";
 			
+			// prepared Statement에 쿼리문 넣기
+			preStatement1 = conn.prepareStatement(query1);
+			
+			// 쿼리문 실행
+			run = preStatement1.executeUpdate();
+						
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
 			
@@ -64,6 +73,7 @@ public class ProductDao {
 			// 커넥션 객체 닫기
 			try {
 				if (preStatement != null) { preStatement.close(); }
+				if (preStatement1 != null) { preStatement1.close(); }
 				if (conn != null) { conn.close(); }
 			} catch (Exception e2) {
 				e2.printStackTrace();

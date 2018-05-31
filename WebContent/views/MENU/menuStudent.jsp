@@ -26,7 +26,7 @@
 		        <li><a href="/EGINE_MANAGE/view/studentErrorPage">공과대학 학생회 게시판</a></li>
 		   	    <li><a href="/EGINE_MANAGE/view/studentErrorPage">물품관리</a></li>
 			    <li><a href="/EGINE_MANAGE/view/studentErrorPage">대여관리</a></li>
-			    <li><a href="/EGINE_MANAGE/borrow/addView">대여신청</a></li>			    			    			    
+			    <li><a href="/EGINE_MANAGE/view/studentErrorPage">대여신청</a></li>			    			    			    
 			    <li><a href="/EGINE_MANAGE/view/studentErrorPage">학생관리</a></li>
 			</ul>	  
 		</div>	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage = "/views/MAIN/errorPage.jsp" import = "com.dankook.EGINE_MANAGE.Dto.StudentDto" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -50,7 +50,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="password" name="pw" id="autocomplete-input" class="autocomplete">
+				          	<input type="password" name="pw" id="autocomplete-input" class="autocomplete" required>
 				          	<label for="autocomplete-input">새로운 비밀번호를 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -93,7 +93,7 @@
             <td>전공<i class="material-icons prefix">grade</i></td>
             <td>
                   <div class="input-field col s12">
-				    <select name="majorNumber">
+				    <select name="majorNumber" required>
 				      <option value="" disabled selected>변경된 전공을 선택하세요.</option>
 				      <option value="5">응용컴퓨터공학과</option>
 				      <option value="4">소프트웨어학과</option>
@@ -113,7 +113,7 @@
             <td>부서<i class="material-icons prefix">business</i></td>
             <td>
                   <div class="input-field col s12">
-				    <select name="deptNumber">
+				    <select name="deptNumber" required>
 				      <option value="" disabled selected>변경된 부서를 선택하세요.</option>
 				      <option value="0">일반학생</option>
 				      <option value="1">신입생</option>
@@ -149,7 +149,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="phone" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="phone" value = "<%= student.getPhone() %>" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">새로운 전화번호를 입력하세요</label>
 				        	</div>
 			      		</div>
@@ -164,7 +164,7 @@
 			    		<div class="col s12">
 				      		<div class="row">
 				        	<div class="input-field col s12" style="height:10px">
-				          	<input type="text" name="address" id="autocomplete-input" class="autocomplete">
+				          	<input type="text" name="address" value = "<%= student.getAddress() %>" id="autocomplete-input" class="autocomplete">
 				          	<label for="autocomplete-input">새로운 주소를 입력하세요</label>
 				        	</div>
 			      		</div>

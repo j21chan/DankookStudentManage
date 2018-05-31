@@ -264,7 +264,7 @@ public class BoardDao {
 		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
 		
 		// 쿼리문
-		query = "select * from all_board";
+		query = "select * from all_board order by bNumber";
 		
 		try {
 			conn = dataSource.getConnection();

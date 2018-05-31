@@ -20,6 +20,10 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 	<div class="container">
+	
+	<!-- 메뉴바 -->
+	<jsp:include page ="/views/MENU/menu.jsp" flush = "false"/>
+	
 	<h4 align="center">학생 리스트</h4><br>
 		<div class="row">
 			<form action="/EGINE_MANAGE/student/search" method="post">
@@ -37,7 +41,7 @@
 						<label>학생 검색</label>
 						<input type="text" name="keyword" size="25" id="search" required>
 					</div>
-					<div class="col s3" style ="position: absolute; left:1170px; top:320px;">
+					<div class="col s3" style ="position: absolute; left:1170px; top:450px;">
 						<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색
 							<i class="material-icons right">search</i>
 						</button>

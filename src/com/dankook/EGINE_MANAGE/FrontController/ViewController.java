@@ -27,7 +27,6 @@ public class ViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public ViewController() {
-        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

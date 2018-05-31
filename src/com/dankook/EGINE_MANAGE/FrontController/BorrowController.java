@@ -14,6 +14,8 @@ import com.dankook.EGINE_MANAGE.Command.BorrowCommand.BorrowCommand;
 import com.dankook.EGINE_MANAGE.Command.BorrowCommand.BorrowDeleteCommand;
 import com.dankook.EGINE_MANAGE.Command.BorrowCommand.BorrowListCommand;
 import com.dankook.EGINE_MANAGE.Command.BorrowCommand.BorrowSearchCommand;
+import com.dankook.EGINE_MANAGE.Command.ProductCommand.ProductCommand;
+import com.dankook.EGINE_MANAGE.Command.ProductCommand.ProductListCommand;
 
 
 /*
@@ -33,7 +35,6 @@ public class BorrowController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     public BorrowController() {
-        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -73,6 +74,8 @@ public class BorrowController extends HttpServlet {
 		
 		// 대여 신청 페이지 이동
 		if(com.equals("/borrow/addView")) {
+			ProductCommand pCommand = new ProductListCommand();
+			pCommand.execute(request, response);
 			viewPage = "/views/BORROW/borrowAdd.jsp";
 		}
 		

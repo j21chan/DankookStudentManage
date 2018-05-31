@@ -23,7 +23,7 @@ public class ProductSearchCommand implements ProductCommand {
 		}
 		
 		// 물품 이름을 가져옴
-		String productName = request.getParameter("productName");
+		String productName = request.getParameter("search");
 		
 		// 물품 DAO 객체 생성 후 물품 검색 로직 실행
 		ProductDao dao = new ProductDao();
