@@ -21,6 +21,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+
 	<br><hr>
 	<h4>공과대학 통합 포털 사이트 <span style="font-weight:bold;">회원가입</span>을 <span style="font-weight:bold;">환영</span>합니다.</h4>
 	<hr><br>

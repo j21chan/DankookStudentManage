@@ -21,6 +21,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+
 <h4 align="center">공과대학 학생회 회원가입</h4>
 <form action = "/EGINE_MANAGE/student/join" method = "post">
 <table border="1" style="width:50%" align="center" class="centered">

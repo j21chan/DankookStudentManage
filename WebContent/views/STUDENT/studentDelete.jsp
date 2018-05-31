@@ -21,6 +21,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+
 	<h4 align="center">회원탈퇴</h4>
 	<div class="row">
     	<div class="col s6 offset-s3">

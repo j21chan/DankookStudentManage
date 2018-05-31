@@ -27,6 +27,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+
     <h4 align="center"><span class="blue-text text-darken-2">회원정보가 정상적으로 변경되었습니다.</span></h4><br>
 	<table border="1" style="width:50%" align="center" class="centered"	>
         <tr >

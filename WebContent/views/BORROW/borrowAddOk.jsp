@@ -21,6 +21,8 @@
 	<img style="width: 1920px;" src="/EGINE_MANAGE/images/banner.png">
 	
 	<div class="container">
+	      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+	
 		<h4 align="center">대여 신청 완료</h4>
 		<div class="row">
 	    	<div class="col s6 offset-s3">
@@ -37,6 +39,10 @@
 		</div>
 		<div class = "row" align = "center">
 			<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/main">메인 페이지
+				<i class="material-icons right">keyboard_backspace</i>
+			</a>&nbsp;&nbsp;
+			
+			<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/borrow/list">대여 관리
 				<i class="material-icons right">keyboard_backspace</i>
 			</a>
 		</div>

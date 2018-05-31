@@ -28,6 +28,8 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+      <jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
+
     <h4 align="center"><span class="blue-text text-darken-2">회원가입이 정상적으로 되었습니다.</span></h4><br>
     <h6 align="center"><span class="blue-text text-darken-2"><%= student.getStudentName() %> 님의 가입을 축하드립니다.</span></h6>
 	<table border="1" style="width:50%" align="center" class="centered"	>

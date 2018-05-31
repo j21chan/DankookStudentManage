@@ -25,6 +25,7 @@
 	<img style="width: 1903px;" src="/EGINE_MANAGE/images/banner.png">
 	
 <div class="container">
+<jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>      
 <h4 align="center">회원정보 수정</h4>
 <form action = "/EGINE_MANAGE/student/modify" method = "post">
 <table border="1" style="width:50%" align="center" class="centered">
