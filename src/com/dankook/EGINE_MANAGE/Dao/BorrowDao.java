@@ -159,7 +159,7 @@ public class BorrowDao {
 					"where a.StaffId = b.id\r\n" + 
 					"		and a.StudentId = c.id\r\n" + 
 					"		\r\n" + 
-					"order by a.BorrowNumber asc;";
+					"order by a.BorrowNumber desc;";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
@@ -251,7 +251,7 @@ public class BorrowDao {
 					"where a.StaffId = b.id\r\n" + 
 					"		and a.StudentId = c.id\r\n" + 
 					"		and " + type + " like ? \r\n" + 
-					"order by a.BorrowNumber asc;";
+					"order by a.BorrowNumber desc;";
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
