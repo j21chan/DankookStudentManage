@@ -313,7 +313,7 @@ public class BoardDao {
 	
 	// 게시글 리스트 출력 로직
 	// 반환: 검색 게시글 리스트 / 매개변수: type, keyword
-	public ArrayList<BoardDto> listBoard() {
+	public ArrayList<BoardDto> searchBoard(String type, String keyword) {
 		
 		// 쿼리문, 연결 객체
 		PreparedStatement preStatement = null;
@@ -325,14 +325,19 @@ public class BoardDao {
 		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
 		
 		// 쿼리문
-		query = "select * from all_board order by bNumber";
+		query = "select *\r\n" + 
+				"from all_board\r\n" + 
+				"where " + type + " like ?";
 		
 		try {
 			conn = dataSource.getConnection();
 			
 			// prepared Statement에 쿼리문 넣기
 			preStatement = conn.prepareStatement(query);
-
+			
+			// preStatement 완성하기
+			preStatement.setString(1, "%" + keyword + "%");
+			
 			// 쿼리문 실행
 			resultSet = preStatement.executeQuery();
 			

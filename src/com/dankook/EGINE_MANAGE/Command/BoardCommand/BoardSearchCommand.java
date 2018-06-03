@@ -1,12 +1,14 @@
 package com.dankook.EGINE_MANAGE.Command.BoardCommand;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dankook.EGINE_MANAGE.Dao.BoardDao;
+import com.dankook.EGINE_MANAGE.Dto.BoardDto;
 
 public class BoardSearchCommand implements BoardCommand {
 
@@ -27,13 +29,13 @@ public class BoardSearchCommand implements BoardCommand {
 		// 게시판 Dao 객체 생성
 		BoardDao dao = new BoardDao();
 		
-		// 게시판 쓰기 로직 실행
-		int run = dao.modifyBoard(bNumber, bTitle, bContent);
+		// 게시판 검색 로직 실행
+		ArrayList<BoardDto> dtos = dao.searchBoard(type, keyword);
 		
-		if (run == 1) {
-			// 게시판 수정 성공
+		if (dtos != null) {
+			// 게시판 검색 성공
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("boardModify", "boardModify");
+			httpSession.setAttribute("BoardList", dtos);
 		}
 	}
 }
