@@ -25,10 +25,10 @@
 	String bContent = null;
 	int bNumber = -1;
 	
-   if(session.getAttribute("all_board") == null) {
-	      response.sendRedirect("/EGINE_MANAGE/board/list");
+   if(session.getAttribute("noti_board") == null) {
+	      response.sendRedirect("/EGINE_MANAGE/notiBoard/list");
 	   } else {
-	      BoardDto board = (BoardDto) session.getAttribute("all_board");
+	      BoardDto board = (BoardDto) session.getAttribute("noti_board");
 	       bTitle = board.getbTitle();
 	       bId = board.getbId();
 	       bContent = board.getbContent();
@@ -46,7 +46,7 @@
 		<jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
 		<br>
 		<div class="row">
-			<form action="/EGINE_MANAGE/board/modify" method="post">
+			<form action="/EGINE_MANAGE/notiBoard/modify" method="post">
 				<input type = "hidden" name = "bNumber" value = "<%= bNumber %>"/>
 				<table style="width:70%" border="1" align="center">
 					<tr>
@@ -76,7 +76,7 @@
 					<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">수정 완료
 						<i class="material-icons right">edit</i>
 					</button>&nbsp;&nbsp;
-					<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/list">취소
+					<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/notiBoard/list">취소
 						<i class="material-icons right">close</i>
 					</a>
 				</div>

@@ -15,7 +15,7 @@
 	<!--Let browser know website is optimized for mobile-->
    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    	
-   	<title>자유 게시판</title>
+   	<title>공지 게시판</title>
 </head>
 <body>
 	<jsp:include page = "/views/MAIN/header.html" flush="false"></jsp:include>
@@ -26,9 +26,9 @@
 		
 		<jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
 		 
-		<h4 align="center">자유 게시판 리스트</h4><br>
+		<h4 align="center">공지 게시판 리스트</h4><br>
 		<div class="row">
-			<form action="/EGINE_MANAGE/board/search" method="post">
+			<form action="/EGINE_MANAGE/notiBoard/search" method="post">
 				<div class="col s12">
 					<div class="input-field col s3 offset-s2">
 			        	<select name="type" id = "type" required>				        		
@@ -47,7 +47,7 @@
 						<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색
 							<i class="material-icons right">search</i>
 						</button>&nbsp;&nbsp;
-						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/list">전체 게시판 리스트
+						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/notiBoard/list">전체 게시판 리스트
 							<i class="material-icons left">format_list_numbered</i>
 						</a>
 					</div>
@@ -66,11 +66,11 @@
 			</thead>
 	
 	        <tbody>
-				<c:forEach items="${BoardList}" var="dto">
+				<c:forEach items="${NotiBoardList}" var="dto">
 					<tr>
 						<td>${dto.bNumber}</td>
 						<td>
-							<a href = "/EGINE_MANAGE/board/view?bNumber=${dto.bNumber}">${dto.bTitle}</a>
+							<a href = "/EGINE_MANAGE/notiBoard/view?bNumber=${dto.bNumber}">${dto.bTitle}</a>
 						</td>
 						<td>${dto.bId}</td>
 						<td>${dto.bDate}</td>
@@ -81,7 +81,7 @@
 		</table>
 	    <br><br>
 	    <div align = "center">
-		    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/writeView">게시물 작성
+		    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/notiBoard/writeView">게시물 작성
 		    	<i class="material-icons right">create</i>
 			</a>&nbsp;&nbsp;
 		    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/main">메인 페이지
