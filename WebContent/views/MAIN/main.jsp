@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +53,39 @@
 
 	<br>
       <ul class="collection with-header" style="width:800px">
-        <li class="collection-header"><h4>공지사항</h4></li>
-        <li class="collection-item">첫번째 글 제목</li>
-        <li class="collection-item">두번째 글 제목</li>
-        <li class="collection-item">세번째글 제목</li>
-        <li class="collection-item">네번째글 제목</li>
+        <li class="collection-header"><h4>자유게시판</h4></li>
+		<table class="highlight responsive-table centered">
+	    	<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성날짜</th>
+					<th>히트수</th>
+				</tr>
+			</thead>
+	
+	        <tbody>
+				<c:forEach items="${MainBoardList}" var="dto">
+					<tr>
+						<td>${dto.bNumber}</td>
+						<td>
+							<a href = "/EGINE_MANAGE/view/nonErrorPage">${dto.bTitle}</a>
+						</td>
+						<td>${dto.bId}</td>
+						<td>${dto.bDate}</td>
+						<td>${dto.bHit}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<!-- 
+		<c:forEach items="${MainBoardList}" var="dto">
+			<li>
+				<a href = "/EGINE_MANAGE/view/nonErrorPage">${dto.bTitle}</a>
+			</li>
+		</c:forEach>
+		 -->
       </ul>
 		<form action = "/EGINE_MANAGE/student/login" method = "post">
 			<div class = "row" style ="position: absolute; left:1000px; top:415px;">

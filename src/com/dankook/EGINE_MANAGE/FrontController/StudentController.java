@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dankook.EGINE_MANAGE.Command.BoardCommand.BoardCommand;
+import com.dankook.EGINE_MANAGE.Command.BoardCommand.BoardMainListCommand;
 import com.dankook.EGINE_MANAGE.Command.StudentCommand.StudentCommand;
 import com.dankook.EGINE_MANAGE.Command.StudentCommand.StudentDeleteCommand;
 import com.dankook.EGINE_MANAGE.Command.StudentCommand.StudentJoinCommand;
@@ -74,6 +76,8 @@ public class StudentController extends HttpServlet {
 		
 		// 메인 화면
 		if(com.equals("/student/main")) {
+			BoardCommand bCommand = new BoardMainListCommand();
+			bCommand.execute(request, response);
 			viewPage = "/views/MAIN/loginMain.jsp";
 			
 		// 회원가입 선택 화면
