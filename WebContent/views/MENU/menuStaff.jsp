@@ -23,7 +23,7 @@
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 		        <li><a href="/EGINE_MANAGE/notiBoard/list">공지사항</a></li>
 		        <li><a href="/EGINE_MANAGE/board/list">자유게시판</a></li>
-		        <li><a href="/EGINE_MANAGE/board/staffBoard">공과대학 학생회 게시판</a></li>
+		        <li><a href="/EGINE_MANAGE/staffBoard/list">공과대학 학생회 게시판</a></li>
 		   	    <li><a href="/EGINE_MANAGE/product/list">물품관리</a></li>
 			    <li><a href="/EGINE_MANAGE/borrow/list">대여관리</a></li>
 			    <li><a href="/EGINE_MANAGE/borrow/addView">대여신청</a></li>			    			    

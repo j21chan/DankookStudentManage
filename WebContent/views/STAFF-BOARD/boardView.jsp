@@ -34,10 +34,10 @@
        writerId = writer.getId();
    }
    
-   if(session.getAttribute("all_board") == null) {
-	      response.sendRedirect("/EGINE_MANAGE/board/list");
+   if(session.getAttribute("staff_board") == null) {
+	      response.sendRedirect("/EGINE_MANAGE/staffBoard/list");
 	   } else {
-	      BoardDto board = (BoardDto) session.getAttribute("all_board");
+	      BoardDto board = (BoardDto) session.getAttribute("staff_board");
 	       bTitle = board.getbTitle();
 	       bId = board.getbId();
 	       bContent = board.getbContent();
@@ -55,7 +55,7 @@
 		<jsp:include page = "/views/MENU/menu.jsp" flush = "false"/>
 		<br>
 		<div class="row">
-			<form action="/EGINE_MANAGE/board/list" method="post">
+			<form action="/EGINE_MANAGE/staffBoard/list" method="post">
 				<table style="width:70%" border="1" align="center">
 					<tr>
 			            <td><h5>제 목</h5></td>
@@ -85,10 +85,10 @@
 					<% 
 						if (bId.equals(writerId)) {
 					%>
-						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/modifyView">수정
+						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/staffBoard/modifyView">수정
 							<i class="material-icons right">edit</i>
 						</a>&nbsp;&nbsp;
-						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/delete?bNumber=<%= bNumber %>">삭제
+						<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/staffBoard/delete?bNumber=<%= bNumber %>">삭제
 							<i class="material-icons right">delete_forever</i>
 						</a>
 					<%

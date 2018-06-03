@@ -95,13 +95,13 @@ public class BoardController extends HttpServlet {
 		} else if(com.equals("/board/delete")) {
 			command = new BoardDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardList.jsp";
+			viewPage = "/views/BOARD/boardDeleteOk.jsp";
 			
 		// 게시판 수정 로직  => 게시판 전체 리스트
 		} else if(com.equals("/board/modify")) {
 			command = new BoardModifyCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardList.jsp";
+			viewPage = "/views/BOARD/boardModifyOk.jsp";
 			
 		// 게시판 내용 보기 로직  => 게시판 보기
 		} else if(com.equals("/board/view")) {

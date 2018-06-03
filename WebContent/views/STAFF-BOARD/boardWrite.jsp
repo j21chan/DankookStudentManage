@@ -39,7 +39,7 @@
 		 
 		<h4 align="center">게시물 작성</h4><br>
 		<div class="row">
-			<form action="/EGINE_MANAGE/board/write" method="post">
+			<form action="/EGINE_MANAGE/staffBoard/write" method="post">
 				<table style="width:70%" border="1" align="center">
 					<tr>
 			            <td><h5>제 목</h5></td>
@@ -67,7 +67,7 @@
 					<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">입력 완료
 						<i class="material-icons right">flash_on</i>
 					</button>&nbsp;&nbsp;
-					<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/list">입력 취소
+					<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/staffBoard/list">입력 취소
 						<i class="material-icons right">close</i>
 					</a>
 				</div>
