@@ -33,7 +33,7 @@ public class BoardViewCommand implements BoardCommand {
 		if (dto != null) {
 			// 게시판 보기 성공
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("boardView", dto);
+			httpSession.setAttribute("all_board", dto);
 		}
 	}
 }

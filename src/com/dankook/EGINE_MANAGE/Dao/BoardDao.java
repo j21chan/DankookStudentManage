@@ -30,6 +30,8 @@ public class BoardDao {
 	// 반환: 성공값 / 매개변수: 게시글 컨텐츠
 	public int writeBoard(String bId, String bTitle, String bContent) {
 		
+		System.out.println(bId);
+		
 		// 쿼리문, 연결 객체
 		PreparedStatement preStatement = null;
 		Connection conn = null;
@@ -252,6 +254,65 @@ public class BoardDao {
 	
 	// 게시글 리스트 출력 로직
 	// 반환: 게시글 리스트 / 매개변수: 없음
+	public ArrayList<BoardDto> listBoard() {
+		
+		// 쿼리문, 연결 객체
+		PreparedStatement preStatement = null;
+		Connection conn = null;
+		ResultSet resultSet = null;
+		String query = null;
+
+		// 게시글 리스트
+		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
+		
+		// 쿼리문
+		query = "select * from all_board order by bNumber";
+		
+		try {
+			conn = dataSource.getConnection();
+			
+			// prepared Statement에 쿼리문 넣기
+			preStatement = conn.prepareStatement(query);
+
+			// 쿼리문 실행
+			resultSet = preStatement.executeQuery();
+			
+			// 게시판 데이터 가져오기
+			while(resultSet.next()) {
+				int bNumberTemp = resultSet.getInt("bNumber");
+				String bId = resultSet.getString("bId");
+				String bTitle = resultSet.getString("bTitle");
+				String bContent = resultSet.getString("bContent");
+				Timestamp bDate = resultSet.getTimestamp("bDate");
+				int bHit = resultSet.getInt("bHit");
+				
+				BoardDto board = new BoardDto(bNumberTemp, bId, bTitle, bContent, bDate, bHit);
+				
+				dtos.add(board);
+			}
+			
+		} catch (Exception e) {
+			
+			// 쿼리 에러
+			e.printStackTrace();
+			
+		} finally {
+			
+			// 커넥션 객체 닫기
+			try {
+				if(preStatement != null) { preStatement.close(); }
+				if(conn != null) { conn.close(); }
+				if(resultSet != null) { resultSet.close(); }
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			
+		}
+		return dtos;
+	}
+	
+	// 게시글 리스트 출력 로직
+	// 반환: 검색 게시글 리스트 / 매개변수: type, keyword
 	public ArrayList<BoardDto> listBoard() {
 		
 		// 쿼리문, 연결 객체

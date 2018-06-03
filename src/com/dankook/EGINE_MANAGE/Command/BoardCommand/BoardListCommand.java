@@ -22,7 +22,7 @@ public class BoardListCommand implements BoardCommand {
 		if (dtos != null) {
 			// 게시판 리스트 가져오기 성공
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("boardList", dtos);
+			httpSession.setAttribute("BoardList", dtos);
 		}		
 	}
 }
