@@ -21,7 +21,7 @@
 	<nav>
 	  	<div class="nav-wrapper blue accent-4">
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
-		        <li><a href="/EGINE_MANAGE/board/notiBoard">공지사항</a></li>
+		        <li><a href="/EGINE_MANAGE/notiBoard/list">공지사항</a></li>
 		        <li><a href="/EGINE_MANAGE/board/list">자유게시판</a></li>
 		        <li><a href="/EGINE_MANAGE/view/studentErrorPage">공과대학 학생회 게시판</a></li>
 		   	    <li><a href="/EGINE_MANAGE/view/studentErrorPage">물품관리</a></li>

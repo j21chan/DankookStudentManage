@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -35,7 +35,7 @@
 				        </div>
 						<div class="col s3">
 							<label>물품 검색</label>
-							<input type="text" name="search" size="25" id="search">
+							<input type="text" name="search" size="25" id="search" required>
 						</div>
 						<div class="col s3" style ="position: absolute; left:1060px; top:440px;">
 							<button class="btn waves-effect waves-light blue accent-4" type="submit" name="action">검색

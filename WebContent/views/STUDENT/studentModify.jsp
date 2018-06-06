@@ -178,7 +178,7 @@
 		<button class="btn waves-effect blue accent-4" type="submit" name="action">수정
 		<i class="material-icons right">edit</i>
 		</button>&nbsp;&nbsp;
-		<a class="waves-effect waves-light btn blue accent-4" href = "studentDelete.jsp">탈퇴<i class="material-icons right">delete_forever</i>
+		<a class="waves-effect waves-light btn blue accent-4" href = "/EGINE_MANAGE/student/deleteView">탈퇴<i class="material-icons right">delete_forever</i>
 		</a>&nbsp;&nbsp;	
 		<a class="waves-effect waves-light btn blue accent-4" href = "/EGINE_MANAGE/student/main">돌아가기
 		<i class="material-icons right">keyboard_backspace</i>

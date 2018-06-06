@@ -2,6 +2,7 @@
 ** 2018 - 1학기 : 문제해결을 위한 자바 활용 데이터베이스
 ** 작성자 : 32131810 / 정  찬
 ** 쿼리 실행 순서 : 맨 위에 테이블부터 순서대로 생성하시면 제약조건이 걸리지 않고 실행됩니다.
+**                  주석 한개씩 풀어가면서 하시면 됩니다.
 ** 물품 추가 / 전공 추가 / 부서 추가 를 꼭 해줘야지 웹서버가 정상적으로 동작합니다.
 */
 
@@ -131,10 +132,10 @@ CREATE TABLE BORROW_LIST (
     StudentId varchar(30),
     ProductNumber int,
     ProductIndex int,
-    BorrowDate timestamp,
+    BorrowDate timestamp not null default current_timestamp on update current_timestamp,
     
     primary key(BorrowNumber),
-    foreign key(StaffId) references STAFF(id),
+    foreign key(StaffId) references STUDENT(id),
     foreign key(StudentId) references STUDENT(id),
     foreign key(ProductNumber) references PRODUCT(ProductNumber)
 );

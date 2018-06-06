@@ -36,7 +36,7 @@
     	</div><br>
 	</div>
 	<center>
-    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/views/MAIN/main.jsp">메인 페이지
+    <a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/main">메인 페이지
     <i class="material-icons right">keyboard_backspace</i>
 	</a></center>
 </div>
