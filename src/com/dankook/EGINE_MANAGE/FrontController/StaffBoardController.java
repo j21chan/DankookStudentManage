@@ -88,7 +88,7 @@ public class StaffBoardController extends HttpServlet {
 		if(com.equals("/staffBoard/write")) {
 			command = new StaffBoardWriteCommand();
 			command.execute(request, response);
-			viewPage = "/views/STAFF-BOARD/boardList.jsp";
+			viewPage = "/views/STAFF-BOARD/boardWriteOk.jsp";
 			
 		// 게시판 삭제 로직  => 게시판 전체 리스트
 		} else if(com.equals("/staffBoard/delete")) {

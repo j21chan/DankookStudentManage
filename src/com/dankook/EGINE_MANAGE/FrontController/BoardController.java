@@ -89,7 +89,7 @@ public class BoardController extends HttpServlet {
 		if(com.equals("/board/write")) {
 			command = new BoardWriteCommand();
 			command.execute(request, response);
-			viewPage = "/views/BOARD/boardList.jsp";
+			viewPage = "/views/BOARD/boardWriteOk.jsp";
 			
 		// 게시판 삭제 로직  => 게시판 전체 리스트
 		} else if(com.equals("/board/delete")) {

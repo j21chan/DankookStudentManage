@@ -88,7 +88,7 @@ public class NotiBoardController extends HttpServlet {
 		if(com.equals("/notiBoard/write")) {
 			command = new NotiBoardWriteCommand();
 			command.execute(request, response);
-			viewPage = "/views/NOTI-BOARD/boardList.jsp";
+			viewPage = "/views/NOTI-BOARD/boardWriteOk.jsp";
 			
 		// 게시판 삭제 로직  => 게시판 전체 리스트
 		} else if(com.equals("/notiBoard/delete")) {
