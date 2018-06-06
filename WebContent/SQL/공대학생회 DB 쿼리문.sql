@@ -3,6 +3,7 @@
 ** 작성자 : 32131810 / 정  찬
 ** 쿼리 실행 순서 : 맨 위에 테이블부터 순서대로 생성하시면 제약조건이 걸리지 않고 실행됩니다.
 **                  주석 한개씩 풀어가면서 하시면 됩니다.
+**                  하시면서 혹시 DB가 이상하게 작동되면 수정하다가 반영이 안된 부분일 수 있습니다.
 ** 물품 추가 / 전공 추가 / 부서 추가 를 꼭 해줘야지 웹서버가 정상적으로 동작합니다.
 */
 
@@ -11,6 +12,7 @@ DROP DATABASE IF EXISTS EGINE_MANAGE;
 CREATE DATABASE EGINE_MANAGE;
 USE EGINE_MANAGE;
 */
+
 
 /* 물품
 물품 번호
@@ -106,6 +108,7 @@ CREATE TABLE STUDENT (
     
     MajorNumber int not null,
     DeptNumber int,
+    
     Sex 		char(5) 	not null,
     Phone 		varchar(20),
     Address 	varchar(30),
@@ -157,7 +160,7 @@ create table all_board (
     bId varchar(30) not null,
     bTitle varchar(30) not null,
     bContent varchar(100),
-    bDate timestamp,
+    bDate timestamp not null default current_timestamp on update current_timestamp,
     bHit int default 0,
     
     primary key(bNumber),
@@ -169,7 +172,7 @@ create table staff_board (
     bId varchar(30) not null,
     bTitle varchar(30) not null,
     bContent varchar(100),
-    bDate timestamp,
+    bDate timestamp not null default current_timestamp on update current_timestamp,
     bHit int default 0,
     
     primary key(bNumber),
@@ -181,7 +184,7 @@ create table noti_board (
     bId varchar(30) not null,
     bTitle varchar(30) not null,
     bContent varchar(100),
-    bDate timestamp,
+    bDate timestamp not null default current_timestamp on update current_timestamp,
     bHit int default 0,
     
     primary key(bNumber),

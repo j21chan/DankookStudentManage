@@ -34,7 +34,7 @@
 	    	</div><br>
 		</div>
 		<div class = "row" align = "center">
-			<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/board/list">게시판 리스트
+			<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/notiBoard/list">게시판 리스트
 				<i class="material-icons left">format_list_numbered</i>
 			</a>&nbsp;&nbsp;
 			<a class="waves-effect waves-light btn blue accent-4" href="/EGINE_MANAGE/student/main">메인 페이지
